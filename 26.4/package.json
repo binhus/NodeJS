@@ -1,0 +1,27 @@
+{
+  "name": "26.4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "desafio1": "nodemon desafio1.js",
+    "desafio2": "nodemon desafio2.js",
+    "desafio3": "nodemon desafio3.js",
+    "desafio4": "nodemon desafio4.js",
+    "desafio5": "nodemon desafio5.js",
+    "desafio6": "nodemon desafio6.js",
+    "desafio7": "nodemon desafio7.js",
+    "desafio8": "nodemon desafio8.js",
+    "desafio9": "nodemon desafio9.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}

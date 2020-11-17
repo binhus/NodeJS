@@ -8,7 +8,7 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.post('/login', (req, res) => {
+app.post('/hello', (req, res) => {
   console.log('qualquer coisa');
   console.log(req.body);
   const { name } = req.body;

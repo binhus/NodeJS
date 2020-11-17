@@ -1,3 +1,7 @@
+/*
+Inicie os exercícios criando uma aplicação NodeJS, com os comandos já aprendidos.
+*/
+
 const express = require('express');
 
 const app = express();

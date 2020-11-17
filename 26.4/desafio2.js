@@ -1,3 +1,7 @@
+/* 
+Crie uma aplicação express que receba uma requisição do tipo GET no caminho /ping e retorne o JSON { "message": "Pong!" }.
+*/
+
 const express = require('express');
 
 const app = express();

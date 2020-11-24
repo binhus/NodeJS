@@ -35,6 +35,17 @@ app.get('/user', async (req, res) => {
   return res.status(200).send(users);
 });
 
+/* 3.GET /user/:id - Retorna o objeto do usuário cujo id seja igual ao parâmetro 
+id informado na URL. Além disso o endpoint deve retornar também o status 200. */
+
+app.get('/user/:id', async (req, res) => {
+  const user = await userModel.getUserById(req.params.id);
+  console.log(req.params)
+
+  console.log(user)
+  return res.status(200).send(user)
+})
+
 app.listen(PORT, () => {
   console.log(`O Pai tá ON na porta: ${PORT}`);
 });

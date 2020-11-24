@@ -27,7 +27,13 @@ const addUser = (userData) => {
 const getAllUsers = () =>
   connectionMySQL.execute('SELECT * FROM users;').then(([results]) => results);
 
+const getUserById = (id) =>
+   connectionMySQL
+    .execute('SELECT * FROM users WHERE id = ?', [id])
+    .then(([[user]]) => user || null)
+
 module.exports = {
   addUser,
   getAllUsers,
+  getUserById,
 };

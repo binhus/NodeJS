@@ -23,6 +23,11 @@ const addUser = (userData) => {
       password,
     }));
 };
+
+const getAllUsers = () =>
+  connectionMySQL.execute('SELECT * FROM users;').then(([results]) => results);
+
 module.exports = {
   addUser,
+  getAllUsers,
 };

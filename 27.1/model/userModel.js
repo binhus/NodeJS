@@ -28,12 +28,23 @@ const getAllUsers = () =>
   connectionMySQL.execute('SELECT * FROM users;').then(([results]) => results);
 
 const getUserById = (id) =>
-   connectionMySQL
+  connectionMySQL
     .execute('SELECT * FROM users WHERE id = ?', [id])
-    .then(([[user]]) => user || null)
+    .then(([[user]]) => user || null);
+
+const updateUser = ({ firstName, lastName, email, password }, id) =>
+  connectionMySQL.execute(
+    'UPDATE users SET first_name = ?, last_name = ?, email = ?, password = ? WHERE id = ?',
+    [firstName, lastName, email, password, id],
+  );
+
+const deleteUserById = (id) =>
+  connectionMySQL.execute('DELETE FROM users WHERE id = ?', [id]);
 
 module.exports = {
   addUser,
   getAllUsers,
   getUserById,
+  updateUser,
+  deleteUserById,
 };

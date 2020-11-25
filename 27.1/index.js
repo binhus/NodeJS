@@ -48,6 +48,30 @@ app.get('/user/:id', async (req, res) => {
   return res.status(200).send(user);
 });
 
+/* 
+4.PUT /user/:id - Edita informações do usuário cujo id seja igual ao parâmetro id informado na URL.
+O endpoint deve retornar um JSON com a mensagem Usuário editado com sucesso, juntamente com o status 200;
+Caso os dados não estejam de acordo com as regras de negócio o endpoint deve retornar um objeto com a mensagem
+Dados inválidos juntamente com o status 200.
+*/
+
+app.put('/user/:id', middewares.dataValidator, async (req, res) => {
+  const { firstName, lastName, email, password } = req.body;
+  const { id } = req.params;
+  const updatedUser = await userModel.updateUser(req.body, req.params.id);
+  return res.status(200).send({ id, firstName, lastName, email, password });
+});
+
+/*
+5. DELETE /user/:id - Deleta o usuário cujo id seja igual ao parâmetro id informado na URL.
+Endpoint deve retornar um objeto com a mensagem Usuário deletado com sucesso, juntamente com o status 200.
+*/
+
+app.delete('/user/:id', async (req, res) => {
+  const deleted = await userModel.deleteUserById(req.params.id)
+  return res.status(200).send({message: 'Usuário deletado com sucesso'})
+})
+
 app.listen(PORT, () => {
   console.log(`O Pai tá ON na porta: ${PORT}`);
 });

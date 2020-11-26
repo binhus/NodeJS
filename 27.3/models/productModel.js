@@ -28,14 +28,14 @@ const getAll = async () => {
   }
 };
 
-const getById = async (id) => {
+const getById = async (idParam) => {
   try {
     const db = await connect();
     const searchDb = await db
       .getTable('products')
       .select()
       .where('id = :id')
-      .bind('id', id)
+      .bind('id', idParam)
       .execute();
     const result = await searchDb.fetchAll();
     if(!result.length) return null;
